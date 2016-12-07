@@ -24,3 +24,4 @@ def make_dict(bigrams):
     bigram_dict = {}
     for each in bigrams:
         bigram_dict.setdefault(each, [])
+    return bigram_dict
