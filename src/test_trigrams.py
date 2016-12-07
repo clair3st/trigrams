@@ -6,6 +6,9 @@ test_string = "I Wish I may I wish I might"
 
 test_list = ["sddf", "dfsfs", "sdgsdf", "word", "another", "blue", "orange"]
 
+test_biograms = ["I wish", "wish I", "I may", "may I ", "I \
+wish", "wish I", "I might"]
+
 
 def test_make_list():
     """Test whether function makes list."""
@@ -28,6 +31,17 @@ def test_all_bigrams():
     result = True
     for item in new_bigram:
         if len(item.split()) != 2:
+            result = False
+            break
+    assert result
+
+
+def test_dict():
+    """Test whether dictionary contains all biograms."""
+    from trigrams import make_dict
+    result = True
+    for key in make_dict(test_biograms):
+        if key not in test_biograms:
             result = False
             break
     assert result
