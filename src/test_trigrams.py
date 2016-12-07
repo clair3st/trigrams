@@ -4,10 +4,18 @@
 test_string = "I Wish I may I wish I might"
 
 
-test_list = ["sddf", "dfsfs", "sdgsdf", "word", "another", "blue", "orange"]
+test_list = ["I", "wish", "I", "may", "I", "wish", "I", "might"]
 
 test_biograms = ["I wish", "wish I", "I may", "may I ", "I \
 wish", "wish I", "I might"]
+
+test_dict = {
+    "wish I": [],
+    "I may": [],
+    "may I": [],
+    "I may": [],
+    "I might": []
+}
 
 
 def test_make_list():
@@ -42,8 +50,8 @@ def test_dict():
     assert type(make_dict(test_biograms)) == dict
 
 
-def test_dict_contents():
-    """Test whether dictionary contains all biograms."""
+def test_dict_keys():
+    """Test whether dictionary contains all biograms as keys."""
     from trigrams import make_dict
     result = True
     dict_ex = make_dict(test_biograms)
@@ -52,3 +60,9 @@ def test_dict_contents():
             result = False
             break
     assert result
+
+
+def test_dict_values():
+    """Test whether dictionary contains values create trigrams."""
+    from trigrams import populate_dict
+    assert len(populate_dict(test_dict, test_biograms, test_list).values()) > 0
