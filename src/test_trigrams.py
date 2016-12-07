@@ -37,11 +37,18 @@ def test_all_bigrams():
 
 
 def test_dict():
+    """Test whether dictionary is returned from make dict function."""
+    from trigrams import make_dict
+    assert type(make_dict(test_biograms)) == dict
+
+
+def test_dict_contents():
     """Test whether dictionary contains all biograms."""
     from trigrams import make_dict
     result = True
-    for key in make_dict(test_biograms):
-        if key not in test_biograms:
+    dict_ex = make_dict(test_biograms)
+    for n in test_biograms:
+        if n not in dict_ex:
             result = False
             break
     assert result
