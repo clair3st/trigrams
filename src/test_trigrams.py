@@ -19,3 +19,15 @@ def test_make_bigrams():
     from trigrams import make_bigram
     new_bigram = make_bigram(test_list)
     assert len(new_bigram[1].split()) == 2
+
+
+def test_all_bigrams():
+    """Test whether all indexes of bigram list are bigrams."""
+    from trigrams import make_bigram
+    new_bigram = make_bigram(test_list)
+    result = True
+    for item in new_bigram:
+        if len(item.split()) != 2:
+            result = False
+            break
+    assert result
