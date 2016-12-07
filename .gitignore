@@ -90,3 +90,6 @@ include/
 
 # Rope project settings
 .ropeproject
+
+pip-selfcheck.json
+share/
