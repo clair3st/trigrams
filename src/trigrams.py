@@ -9,6 +9,7 @@ def make_baselist(sentence):
     baselist = sentence.split()
     return baselist
 
+
 def make_bigram(baselist):
     """Make bigrams out of an ordinary list."""
     bigrams = []
@@ -16,3 +17,10 @@ def make_bigram(baselist):
             bigrams.append(baselist[c - 2] + " " + baselist[c - 1])
             if c == len(baselist):
                 return bigrams
+
+
+def make_dict(bigrams):
+    """Build dictonary with bigram keys."""
+    bigram_dict = {}
+    for each in bigrams:
+        bigram_dict.setdefault(each, [])
