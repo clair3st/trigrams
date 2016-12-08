@@ -93,3 +93,10 @@ def test_output_member_of_list():
     test_key = output[-3] + " " + output[-2]
     test_value = output[-1]
     assert test_value in test_dict[test_key]
+
+def test_output_string_length():
+    """Test if the length of the string equals n - 2."""
+    from trigrams import add_output
+    result = add_output(test_dict, seed, n)
+    split_up = result.split()
+    assert len(split_up) == n
