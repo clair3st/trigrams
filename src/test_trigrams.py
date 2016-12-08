@@ -67,3 +67,15 @@ def test_dict_values():
     from trigrams import populate_dict
     result = populate_dict(test_dict, test_biograms, test_list)
     assert len(result.values()) > 0
+
+def test_string_existence():
+    """Test if the string containing the to be written text exists"""
+    from trigrams import start_output
+    result = start_output(test_dict)
+    assert type(result) == str
+
+def test_output_string():
+    """Test if the first 2 words of the string to be inspected is a member of the dictionary"""
+    from trigrams import start_output
+    result = start_output(test_dict)
+    assert result in test_dict
