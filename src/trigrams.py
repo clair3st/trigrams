@@ -43,7 +43,14 @@ def start_output(bigram_list):
     return output
 
 
-def add_output(the_dict, output):
+def add_output(the_dict, output, n):
     """The function takes a value from the bigram list to make trigram."""
-    add_word = sample(the_dict[output], 1)
-    return output + ' ' + ''.join(add_word)
+    final_list = output.split(' ')
+    while len(final_list) < n:
+        two_words = final_list[-2] + ' ' + final_list[-1]
+        if the_dict[two_words]:
+            add_word = sample(the_dict[two_words], 1)
+        else:
+            return ' '.join(final_list)
+        final_list += add_word
+    return ' '.join(final_list)
