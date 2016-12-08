@@ -21,6 +21,8 @@ seed = 'I wish'
 
 n = 6
 
+filename = "sherlock_small.txt"
+
 
 def test_make_list():
     """Test whether function makes list."""
@@ -108,4 +110,4 @@ def test_output_string_length():
 def test_open_file():
     """Test whether file successfully opened."""
     from trigrams import open_file
-    assert type(open_file()) == str and len(open_file()) > 0
+    assert type(open_file(filename)) == str and len(open_file()) > 0
