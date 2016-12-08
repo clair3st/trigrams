@@ -110,4 +110,4 @@ def test_output_string_length():
 def test_open_file():
     """Test whether file successfully opened."""
     from trigrams import open_file
-    assert type(open_file(filename)) == str and len(open_file(filename)) > 0
+    assert type(open_file(filename)) == list and len(open_file(filename)) > 0
