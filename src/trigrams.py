@@ -14,10 +14,9 @@ def make_baselist(sentence):
 def make_bigram(baselist):
     """Make bigrams out of an ordinary list."""
     bigrams = []
-    for c, i in enumerate(baselist, 2):
-            bigrams.append(baselist[c - 2] + " " + baselist[c - 1])
-            if c == len(baselist):
-                return bigrams
+    for i in range(len(baselist) - 1):
+            bigrams.append(baselist[i] + ' ' + baselist[i + 1])
+    return bigrams
 
 
 def make_dict(bigrams):
@@ -43,8 +42,8 @@ def start_output(bigram_list):
     output = ''.join(a)
     return output
 
+
 def add_output(the_dict, output):
     """The function takes a value from the bigram list to make trigram."""
     add_word = sample(the_dict[output], 1)
-    return output + ''.join(add_word)
-
+    return output + ' ' + ''.join(add_word)
