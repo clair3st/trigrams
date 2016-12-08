@@ -6,6 +6,7 @@ sentence = 'I wish I may I wish I might'
 
 
 def open_file(filename):
+    """Return list of words free of special characters."""
     fp = open(filename)
     clean_para = []
     for line in fp:
@@ -14,7 +15,7 @@ def open_file(filename):
         clean_para.append(clean_line)
     return clean_para
 
-#make_baselist(clean_line)
+
 def make_baselist(sentence):
     """Create baselist from an inputted sentence."""
     baselist = sentence.split()
@@ -64,3 +65,17 @@ def add_output(the_dict, output, n):
             return ' '.join(final_list)
         final_list += add_word
     return ' '.join(final_list)
+
+
+def main(filename, n):
+    """The function initiates our trigram algorithm."""
+    base_list = open_file(filename)
+    bigrams = make_bigram(base_list)
+    the_dict = make_dict(bigrams)
+    new_dict = populate_dict(the_dict, bigrams, base_list)
+    output = start_output(bigrams)
+    paragraph = add_output(new_dict, output, n)
+    if len(paragraph) < n:
+        paragraph += start_output(bigrams)
+        paragraph += add_output(new_dict, output, n)
+    print(paragraph)
