@@ -1,10 +1,18 @@
 """Write new stories based on inputted text using trigram algo."""
 from random import sample
 
-
 sentence = 'I wish I may I wish I might'
 
 
+def open_file(filename):
+    fp = open(filename)
+    clean_para = []
+    for line in fp:
+        clean_line = line.rstrip('-')
+        clean_para.append(clean_line)
+    return clean_para
+
+#make_baselist(clean_line)
 def make_baselist(sentence):
     """Create baselist from an inputted sentence."""
     baselist = sentence.split()
