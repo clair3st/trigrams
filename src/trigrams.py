@@ -58,7 +58,7 @@ def add_output(the_dict, output, n):
     return ' '.join(final_list)
 
 
-def main(filename, n):
+def main(filename, num):
     """The function initiates our trigram algorithm."""
     base_list = open_file(filename)
     bigrams = make_bigram(base_list)
