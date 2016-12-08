@@ -25,3 +25,13 @@ def make_dict(bigrams):
     for each in bigrams:
         bigram_dict.setdefault(each, [])
     return bigram_dict
+
+
+def populate_dict(the_dict, bigram_list, word_list):
+    """Populate dictonary values with words from wordlist."""
+    for idx, item in enumerate(bigram_list):
+        if idx + 1 == len(bigram_list):
+            return the_dict
+        new_value = word_list[idx + 2]
+        the_dict[item].append(new_value)
+
