@@ -1,5 +1,6 @@
 """Write new stories based on inputted text using trigram algo."""
 from random import sample
+import re
 
 sentence = 'I wish I may I wish I might'
 
