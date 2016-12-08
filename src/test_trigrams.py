@@ -17,6 +17,8 @@ test_dict = {
     "I might": []
 }
 
+seed = 'I wish'
+
 
 
 def test_make_list():
