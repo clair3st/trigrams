@@ -22,7 +22,6 @@ seed = 'I wish'
 n = 6
 
 
-
 def test_make_list():
     """Test whether function makes list."""
     from trigrams import make_baselist, sentence
@@ -87,8 +86,9 @@ def test_output_string():
     result = start_output(test_biograms)
     assert result in test_biograms
 
+
 def test_output_member_of_list():
-    """Test if the word following a dict member is also a member of this keys list"""
+    """Test if the word following a dict member is also a member of this keys list."""
     from trigrams import add_output
     result = add_output(test_dict, seed, n)
     output = result.split()
@@ -96,9 +96,16 @@ def test_output_member_of_list():
     test_value = output[-1]
     assert test_value in test_dict[test_key]
 
+
 def test_output_string_length():
     """Test if the length of the string equals n - 2."""
     from trigrams import add_output
     result = add_output(test_dict, seed, n)
     split_up = result.split()
     assert len(split_up) == n
+
+
+def test_open_file():
+    """Test whether file successfully opened."""
+    from trigrams import open_file
+    assert type(open_file()) == str and len(open_file()) > 0
