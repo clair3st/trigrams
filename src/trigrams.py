@@ -7,18 +7,18 @@ sentence = 'I wish I may I wish I might'
 
 def open_file(filename):
     """Return list of words free of special characters."""
-    fp = open(filename)
-    clean_para = []
-    for line in fp:
-        cleanline = re.sub('-', ' ', line)
-        clean_line = ''.join(c for c in cleanline if c not in '(),.')
-        clean_para.append(clean_line)
+    with open(filename) as f:
+        clean_para = []
+        for line in f:
+            cleanline = re.sub('-', ' ', line)
+            clean_line = ''.join(c for c in cleanline if c not in '(),.')
+            clean_para.append(clean_line)
     return clean_para
 
 
 def make_baselist(sentence):
     """Create baselist from an inputted sentence."""
-    baselist = sentence.split()
+    baselist = sentence.split('\n')
     return baselist
 
 
