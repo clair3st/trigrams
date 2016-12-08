@@ -1,8 +1,7 @@
 """Write new stories based on inputted text using trigram algo."""
 from random import sample
 import re
-
-sentence = 'I wish I may I wish I might'
+from sys import argv
 
 
 def open_file(filename):
@@ -13,12 +12,6 @@ def open_file(filename):
             clean_line = re.findall("\w+", line)
             clean_para += clean_line
     return clean_para
-
-
-def make_baselist(sentence):
-    """Create baselist from an inputted sentence."""
-    baselist = sentence.split('\n')
-    return baselist
 
 
 def make_bigram(baselist):
@@ -77,8 +70,10 @@ def main(filename, n):
     if len(paragraph) < n:
         paragraph += start_output(bigrams)
         paragraph += add_output(new_dict, output, n)
-    print(paragraph)
+    print(paragraph + '.')
 
 
-
-main("sherlock_small.txt", 10)
+if __name__ == '__main__':
+    script, filename, n = argv
+    n = int(n)
+    main(filename, n)

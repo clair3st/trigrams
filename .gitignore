@@ -93,3 +93,5 @@ include/
 
 pip-selfcheck.json
 share/
+
+src/sherlock_long.txt
