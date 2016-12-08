@@ -18,6 +18,7 @@ test_dict = {
 }
 
 
+
 def test_make_list():
     """Test whether function makes list."""
     from trigrams import make_baselist, sentence
@@ -81,3 +82,12 @@ def test_output_string():
     from trigrams import start_output
     result = start_output(test_biograms)
     assert result in test_biograms
+
+def test_output_member_of_list():
+    """Test if the word following a dict member is also a member of this keys list"""
+    from trigrams import add_output
+    result = add_output(test_dict, seed)
+    output = result.split()
+    test_key = output[-3] + " " + output[-2]
+    test_value = output[-1]
+    assert test_value in test.dict[test_key]
