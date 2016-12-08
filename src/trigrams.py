@@ -10,8 +10,7 @@ def open_file(filename):
     with open(filename) as f:
         clean_para = []
         for line in f:
-            cleanline = re.sub('-', ' ', line)
-            clean_line = ''.join(c for c in cleanline if c not in '(),.')
+            clean_line = re.findall("\w+", line)
             clean_para.append(clean_line)
     return clean_para
 
