@@ -104,7 +104,7 @@ def test_output_string_length():
     from trigrams import add_output
     result = add_output(test_dict, seed, n)
     split_up = result.split()
-    assert len(split_up) == n
+    assert len(split_up) <= n
 
 
 def test_open_file():
