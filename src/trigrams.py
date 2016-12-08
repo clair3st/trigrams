@@ -8,7 +8,8 @@ def open_file(filename):
     fp = open(filename)
     clean_para = []
     for line in fp:
-        clean_line = line.rstrip(['-', ',', '.', '(', ')'])
+        cleanline = re.sub('-', ' ', line)
+        clean_line = ''.join(c for c in cleanline if c not in '(),.')
         clean_para.append(clean_line)
     return clean_para
 
