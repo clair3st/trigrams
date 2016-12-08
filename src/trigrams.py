@@ -1,6 +1,5 @@
 """Write new stories based on inputted text using trigram algo."""
 from random import sample
-import re
 from sys import argv
 
 
@@ -9,7 +8,7 @@ def open_file(filename):
     with open(filename) as f:
         clean_para = []
         for line in f:
-            clean_line = re.findall("\w+", line)
+            clean_line = line.split()
             clean_para += clean_line
     return clean_para
 
@@ -66,14 +65,23 @@ def main(filename, num):
     the_dict = make_dict(bigrams)
     new_dict = populate_dict(the_dict, bigrams, base_list)
     output = start_output(bigrams)
-    paragraph = add_output(new_dict, output, num)
-    while len(paragraph.split()) < num:
+    paragraph = add_output(new_dict, output, n)
+    while len(paragraph.split()) < n:
         paragraph += start_output(bigrams)
-        paragraph += add_output(new_dict, output, num)
-    print(paragraph + '.')
+        paragraph += add_output(new_dict, output, n)
+    if paragraph[-1] == '.':
+        print(paragraph)
+    else:
+        print(paragraph + '.')
 
 
 if __name__ == '__main__':
-    script, filename, n = argv
-    n = int(n)
-    main(filename, n)
+    try:
+        script, filename, n = argv
+        n = int(n)
+        main(filename, n)
+    except:
+        print('Oops, Something went wrong!')
+        print('Please run trigrams in the following format:')
+        print('python trigrams <text_file> n')
+        print('where n is the number of words you would like printed')
