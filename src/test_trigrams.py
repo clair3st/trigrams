@@ -24,13 +24,6 @@ n = 6
 filename = "sherlock_small.txt"
 
 
-def test_make_list():
-    """Test whether function makes list."""
-    from trigrams import make_baselist, sentence
-    new_list = make_baselist(sentence)
-    assert type(new_list) == list
-
-
 def test_make_bigrams():
     """Test whether function makes bigram."""
     from trigrams import make_bigram
