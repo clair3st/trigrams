@@ -19,6 +19,8 @@ test_dict = {
 
 seed = 'I wish'
 
+n = 6
+
 
 
 def test_make_list():
@@ -88,7 +90,7 @@ def test_output_string():
 def test_output_member_of_list():
     """Test if the word following a dict member is also a member of this keys list"""
     from trigrams import add_output
-    result = add_output(test_dict, seed)
+    result = add_output(test_dict, seed, n)
     output = result.split()
     test_key = output[-3] + " " + output[-2]
     test_value = output[-1]
