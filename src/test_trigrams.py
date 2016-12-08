@@ -92,4 +92,4 @@ def test_output_member_of_list():
     output = result.split()
     test_key = output[-3] + " " + output[-2]
     test_value = output[-1]
-    assert test_value in test.dict[test_key]
+    assert test_value in test_dict[test_key]
