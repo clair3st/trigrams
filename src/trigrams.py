@@ -11,7 +11,7 @@ def open_file(filename):
         clean_para = []
         for line in f:
             clean_line = re.findall("\w+", line)
-            clean_para.append(clean_line)
+            clean_para += clean_line
     return clean_para
 
 
@@ -78,3 +78,7 @@ def main(filename, n):
         paragraph += start_output(bigrams)
         paragraph += add_output(new_dict, output, n)
     print(paragraph)
+
+
+
+main("sherlock_small.txt", 10)
