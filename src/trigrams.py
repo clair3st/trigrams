@@ -1,4 +1,5 @@
-"""Write new stories based on inputted sentences or books using trigram algo."""
+"""Write new stories based on inputted text using trigram algo."""
+from random import sample
 
 
 sentence = 'I wish I may I wish I might'
@@ -35,3 +36,9 @@ def populate_dict(the_dict, bigram_list, word_list):
         new_value = word_list[idx + 2]
         the_dict[item].append(new_value)
 
+
+def start_output(bigram_list):
+    """The function takes one random bigram for the start of output."""
+    a = sample(bigram_list, 1)
+    output = ''.join(a)
+    return output
