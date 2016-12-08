@@ -59,17 +59,17 @@ def add_output(the_dict, output, n):
     return ' '.join(final_list)
 
 
-def main(filename, n):
+def main(filename, num):
     """The function initiates our trigram algorithm."""
     base_list = open_file(filename)
     bigrams = make_bigram(base_list)
     the_dict = make_dict(bigrams)
     new_dict = populate_dict(the_dict, bigrams, base_list)
     output = start_output(bigrams)
-    paragraph = add_output(new_dict, output, n)
-    if len(paragraph) < n:
+    paragraph = add_output(new_dict, output, num)
+    while len(paragraph.split()) < num:
         paragraph += start_output(bigrams)
-        paragraph += add_output(new_dict, output, n)
+        paragraph += add_output(new_dict, output, num)
     print(paragraph + '.')
 
 
