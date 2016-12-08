@@ -1,19 +1,19 @@
 """Tests for trigrams.py moduel."""
 
 
-test_string = "I Wish I may I wish I might"
+test_string = "I wish I may I wish I might"
 
 
 test_list = ["I", "wish", "I", "may", "I", "wish", "I", "might"]
 
-test_biograms = ["I wish", "wish I", "I may", "may I ", "I \
+test_biograms = ["I wish", "wish I", "I may", "may I", "I \
 wish", "wish I", "I might"]
 
 test_dict = {
-    "wish I": [],
+    "I wish": [],
     "I may": [],
     "may I": [],
-    "I may": [],
+    "wish I": [],
     "I might": []
 }
 
@@ -44,7 +44,7 @@ def test_all_bigrams():
     assert result
 
 
-def test_dict():
+def test_make_dict():
     """Test whether dictionary is returned from make dict function."""
     from trigrams import make_dict
     assert type(make_dict(test_biograms)) == dict
@@ -65,4 +65,5 @@ def test_dict_keys():
 def test_dict_values():
     """Test whether dictionary contains values create trigrams."""
     from trigrams import populate_dict
-    assert len(populate_dict(test_dict, test_biograms, test_list).values()) > 0
+    result = populate_dict(test_dict, test_biograms, test_list)
+    assert len(result.values()) > 0
